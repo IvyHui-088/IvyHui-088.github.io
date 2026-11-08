@@ -1,0 +1,7 @@
+.vercel
+.vercelignore
+.publish/
+.workbuddy/
+.DS_Store
+*.genie
+日常随记/

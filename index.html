@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="TYR1uYDTF7vh2ck8njjhIU" class="js" style=""><head data-page-node-id="WZwFALtSI6z39q8VZOict6">
+<meta charset="UTF-8" data-page-node-id="mfzFuXGJJBaCYN4OIiRqXA">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="1HiQf0xstfMGDOuqMnvP1N">
+<title data-page-node-id="ajBDIk5lzXX5f8HKlBLeJs">Ivy Hui — Product Manager × Design</title>
+<meta name="description" content="Ivy Hui 的个人主页。水面之上是工作，水面之下是更大的世界。" data-page-node-id="uNgYj8A3alK7iiinsVDyGV">
+</head><body data-page-node-id="YPcGA9a1yd6qaazmHgEFeW" style="position: relative;">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='28' fill='%23E8744A'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-style='italic' font-size='58' fill='%23FBF9F4' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E" data-page-node-id="p86gr0rSIdxcIhsGYT1uuF">
+<style data-page-node-id="ySZ0FY4P3GeaqUOzz1TH8Q">
+  /* ---------- tokens ---------- */
+  :root{
+    --paper:#FBF9F4;
+    --paper-2:#F4F1E7;
+    --card:#FFFFFF;
+    --ink:#191B18;
+    --ink-2:#3B4038;
+    --muted:#72796E;
+    --line:#E7E2D6;
+    --line-2:#DBD4C4;
+
+    --orange:#E8744A;
+    --orange-deep:#C65832;
+    --orange-soft:#FADFD1;
+    --sage:#DEEBE0;
+    --sage-2:#BCD6C3;
+    --sage-ink:#3E6B52;
+    --butter:#FBE7BE;
+    --butter-ink:#8A6A21;
+    --lilac:#E9E3F5;
+    --lilac-ink:#5A4D85;
+
+    --r-xl:30px;
+    --r-lg:22px;
+    --r-md:14px;
+    --shadow:0 22px 44px -28px rgba(25,27,24,.34);
+    --maxw:1120px;
+    --pad:clamp(20px,5vw,48px);
+
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Songti SC","Noto Serif SC",serif;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+      radial-gradient(760px 480px at 8% -6%, rgba(222,235,224,.85), transparent 62%),
+      radial-gradient(680px 420px at 100% 4%, rgba(251,231,190,.62), transparent 60%),
+      radial-gradient(700px 520px at 60% 110%, rgba(250,223,209,.55), transparent 62%);
+  }
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--butter);color:var(--ink)}
+
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad);position:relative;z-index:1}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,249,244,.78);
+    backdrop-filter:saturate(160%) blur(14px);
+    -webkit-backdrop-filter:saturate(160%) blur(14px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, background .3s ease;
+  }
+  .nav.is-stuck{border-bottom-color:var(--line);background:rgba(251,249,244,.92)}
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    height:70px;
+  }
+  .brand{display:flex;align-items:center;gap:9px;font-weight:650;letter-spacing:-.01em;font-size:16px;white-space:nowrap}
+  .brand-dot{width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(232,116,74,.16)}
+  .brand small{font-weight:450;color:var(--muted);letter-spacing:.04em;font-size:11px;text-transform:uppercase}
+
+  .tabs{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:999px;padding:4px}
+  .tab{
+    font-size:13.5px;font-weight:500;color:var(--muted);
+    padding:7px 16px;border-radius:999px;transition:color .2s ease, background .2s ease;
+  }
+  .tab:hover{color:var(--ink)}
+  .tab.active{background:var(--ink);color:var(--paper)}
+
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:13.5px;font-weight:550;
+    padding:9px 17px;border-radius:999px;
+    border:1px solid var(--ink);white-space:nowrap;
+    transition:background .22s ease,color .22s ease,transform .22s ease;
+  }
+  .nav-cta span{transition:transform .25s ease}
+  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+  .nav-cta:hover span{transform:translate(2px,-2px)}
+
+  /* ---------- hero ---------- */
+  .hero{padding-top:clamp(44px,7vw,86px)}
+  .hero-grid{
+    display:grid;grid-template-columns:1.06fr .94fr;
+    gap:clamp(32px,5vw,64px);align-items:center;
+  }
+  .hero-grid > *{min-width:0}
+  .eyebrow{
+    display:inline-flex;align-items:center;flex-wrap:wrap;gap:9px;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);font-weight:550;margin-bottom:22px;max-width:100%;
+  }
+  .eyebrow i{width:26px;height:1px;background:var(--line-2);display:block}
+  .eyebrow b{width:6px;height:6px;border-radius:50%;background:var(--sage-ink);display:block}
+
+  h1{
+    font-size:clamp(38px,6.4vw,68px);
+    line-height:1.06;
+    letter-spacing:-.03em;
+    font-weight:640;
+  }
+  h1 .h1-sub{font-size:.6em;letter-spacing:-.015em}
+  h1 em{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    letter-spacing:-.01em;
+  }
+  .mark{
+    background:linear-gradient(transparent 58%, var(--butter) 58%, var(--butter) 92%, transparent 92%);
+    padding:0 .06em;
+  }
+  .lede{
+    margin-top:22px;font-size:clamp(14.5px,1.6vw,16.5px);
+    color:var(--ink-2);line-height:1.85;max-width:30em;
+  }
+  .space-nowrap{white-space:nowrap}
+  .house-ico{display:inline-block;width:1em;height:1em;vertical-align:middle;margin-left:6px;color:var(--ink)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:14.5px;font-weight:550;
+    padding:14px 24px;border-radius:999px;
+    transition:transform .22s ease, box-shadow .22s ease, background .22s ease, color .22s ease;
+  }
+  .btn-primary{background:var(--orange);color:#fff;box-shadow:0 14px 26px -16px rgba(232,116,74,.95)}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--orange-deep);box-shadow:0 20px 32px -18px rgba(198,88,50,.9)}
+  .btn-ghost{border:1px solid var(--line-2);color:var(--ink);background:rgba(255,255,255,.6)}
+  .btn-ghost:hover{background:#fff;transform:translateY(-2px)}
+
+  /* profile card */
+  .hero-side{position:relative;padding:26px;min-width:0}
+  .profile{max-width:100%}
+  .hero-photo{
+    position:absolute;z-index:4;
+    top:-2px;left:-8px;
+    width:88px;height:88px;border-radius:50%;
+    object-fit:cover;
+    border:5px solid var(--paper);
+    box-shadow:0 16px 28px -16px rgba(25,27,24,.55);
+    transform:rotate(-7deg);
+    transition:transform .45s cubic-bezier(.2,.7,.3,1);
+  }
+  .hero-side:hover .hero-photo{transform:rotate(0deg) scale(1.04)}
+  .profile{
+    position:relative;z-index:2;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--r-xl);
+    padding:26px;
+    box-shadow:var(--shadow);
+    transform:rotate(-1.2deg);
+    transition:transform .4s cubic-bezier(.2,.7,.3,1);
+  }
+  .profile:hover{transform:rotate(0deg)}
+  .profile-top{display:flex;align-items:center;justify-content:flex-end;gap:14px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:550}
+  .avatar{
+    width:74px;height:74px;border-radius:50%;
+    display:grid;place-items:center;
+    margin:20px 0 16px;
+    font-family:var(--serif);font-style:italic;font-size:36px;color:#2F5440;
+    background:linear-gradient(140deg,var(--sage) 0%, #CBE2D3 55%, var(--butter) 100%);
+    box-shadow:inset 0 0 0 1px rgba(62,107,82,.14);
+  }
+  .profile h2{font-size:22px;letter-spacing:-.02em;font-weight:620}
+  .profile-role{font-size:13px;color:var(--muted);margin-top:2px}
+  .profile-rows{list-style:none;margin-top:18px;border-top:1px solid var(--line);padding-top:14px;display:grid;gap:9px}
+  .profile-rows li{display:flex;justify-content:space-between;gap:14px;font-size:12.5px}
+  .profile-rows span{color:var(--muted);flex:none}
+  .profile-rows b{font-weight:550;text-align:right;color:var(--ink-2)}
+
+  .chip{
+    position:absolute;z-index:3;
+    font-size:12px;font-weight:550;
+    padding:8px 14px;border-radius:999px;
+    border:1px solid rgba(25,27,24,.07);
+    box-shadow:0 10px 22px -14px rgba(25,27,24,.5);
+    white-space:nowrap;
+  }
+  .chip-1{top:-10px;right:-8px;background:var(--sage);color:var(--sage-ink);transform:rotate(3deg)}
+  .chip-2{bottom:-4px;left:-14px;background:var(--butter);color:var(--butter-ink);transform:rotate(-3deg)}
+  .chip-3{bottom:4px;right:14px;background:var(--lilac);color:var(--lilac-ink);transform:rotate(2deg)}
+  .spark{position:absolute;top:-16px;left:6px;width:44px;height:44px;color:var(--orange);opacity:.9;z-index:1}
+
+  /* ticker */
+  .ticker{
+    margin-top:clamp(44px,6vw,74px);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    padding:13px 0;
+    background:rgba(255,255,255,.42);
+  }
+  .ticker-track{display:flex;width:max-content;animation:slide 42s linear infinite}
+  .ticker-track span{
+    font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--muted);white-space:nowrap;padding:0 26px;
+  }
+  .ticker-track b{color:var(--orange);font-weight:500;padding:0 8px;font-size:11.5px}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- section scaffolding ---------- */
+  section{scroll-margin-top:88px}
+  .sec{padding-block:clamp(52px,6.4vw,84px)}
+  .sec-head{
+    display:flex;align-items:baseline;gap:18px;
+    padding-bottom:18px;margin-bottom:clamp(28px,4vw,44px);
+    border-bottom:1px solid var(--line);
+  }
+  .sec-idx{
+    font-family:var(--serif);font-style:italic;font-size:13px;color:var(--orange);
+    letter-spacing:.02em;flex:none;
+  }
+  .sec-label{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:550}
+  .sec-head .sec-note{margin-left:auto;font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+
+  h2.title{
+    font-size:clamp(26px,3.7vw,40px);
+    line-height:1.22;letter-spacing:-.025em;font-weight:620;
+    max-width:20em;
+  }
+  h2.title em{font-family:var(--serif);font-style:italic;font-weight:400}
+  .sec-sub{margin-top:14px;color:var(--muted);font-size:14px;max-width:38em}
+
+  /* ---------- world below ---------- */
+  .world-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,20px);margin-top:clamp(28px,4vw,40px)}
+  .world-card{
+    position:relative;display:flex;flex-direction:column;justify-content:space-between;
+    min-height:250px;padding:26px;border-radius:var(--r-xl);
+    border:1px solid rgba(25,27,24,.06);
+    overflow:hidden;
+    transition:transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease;
+  }
+  .world-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .world-hit{position:absolute;inset:0;z-index:1;border-radius:inherit}
+  .world-card > .world-top,.world-card > .world-body{position:relative;z-index:2}
+  .world-card > .world-go,.world-card > .world-deco{z-index:0}
+  .world-life{background:linear-gradient(165deg,#E7F0E7 0%, var(--sage) 55%, #CFE3D4 100%)}
+  .world-works{background:linear-gradient(165deg,#FDF0DC 0%, var(--butter) 58%, #F7D9A8 100%)}
+  .world-top{display:flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+  .world-life .world-top{color:var(--sage-ink)}
+  .world-works .world-top{color:var(--butter-ink)}
+  .world-top s{flex:1;height:1px;background:currentColor;opacity:.28;text-decoration:none}
+  .world-body h3{font-size:clamp(22px,2.6vw,28px);letter-spacing:-.02em;font-weight:620;margin-bottom:6px}
+  .world-body h3 em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:.82em;opacity:.75}
+  .world-body p{font-size:13px;color:rgba(25,27,24,.62);letter-spacing:.01em}
+  .world-go{
+    position:absolute;right:22px;bottom:22px;
+    width:42px;height:42px;border-radius:50%;
+    display:grid;place-items:center;
+    background:rgba(255,255,255,.72);
+    font-size:15px;
+    transition:transform .35s cubic-bezier(.2,.7,.3,1), background .3s ease;
+  }
+  .world-card:hover .world-go{transform:rotate(45deg);background:#fff}
+  .world-deco{position:absolute;right:-30px;top:-30px;width:150px;height:150px;opacity:.32;color:rgba(255,255,255,.9)}
+
+  /* ---------- now ---------- */
+  .now-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,20px)}
+  .now-card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--r-lg);padding:26px;
+    transition:box-shadow .3s ease, transform .3s ease;
+  }
+  .now-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .now-card h3{
+    display:flex;align-items:center;gap:9px;
+    font-size:15px;font-weight:620;letter-spacing:-.01em;margin-bottom:16px;
+  }
+  .pill{
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    padding:3px 9px;border-radius:999px;
+  }
+  .pill-orange{background:var(--orange-soft);color:var(--orange-deep)}
+  .pill-sage{background:var(--sage);color:var(--sage-ink)}
+  .now-list{list-style:none;display:grid;gap:12px}
+  .now-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--ink-2)}
+  .now-list li i{
+    width:6px;height:6px;border-radius:50%;flex:none;margin-top:9px;
+    background:var(--line-2);
+  }
+  .now-list li:first-child i{background:var(--orange)}
+  .now-list small{display:block;color:var(--muted);font-size:12px;line-height:1.6;margin-top:1px}
+
+  /* ---------- life ---------- */
+  .life-grid{
+    display:grid;grid-template-columns:1.22fr .9fr;grid-auto-rows:1fr;
+    gap:clamp(14px,2vw,18px);
+  }
+  .life-feature{
+    grid-row:span 2;
+    position:relative;overflow:hidden;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r-xl);
+    display:flex;flex-direction:column;
+    transition:box-shadow .3s ease;
+  }
+  .life-feature:hover{box-shadow:var(--shadow)}
+  .life-media{
+    position:relative;overflow:hidden;aspect-ratio:4/3;
+    background:var(--paper-2);border-bottom:1px solid var(--line);
+  }
+  .life-media img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .8s cubic-bezier(.2,.7,.3,1);
+  }
+  .life-feature:hover .life-media img{transform:scale(1.04)}
+  .life-badge{
+    position:absolute;left:16px;bottom:16px;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    padding:6px 12px;border-radius:999px;
+    background:rgba(251,249,244,.9);color:var(--ink-2);
+    backdrop-filter:blur(6px);
+  }
+  .life-body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+  .life-body h3{font-size:20px;letter-spacing:-.015em;font-weight:620;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .life-body h3 em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:.86em;color:var(--muted)}
+  .life-body p{font-size:13.5px;color:var(--muted);max-width:34em}
+  .life-quote{
+    margin-top:22px;padding-left:14px;
+    border-left:2px solid var(--butter);
+    font-family:var(--serif);font-size:15px;line-height:1.75;color:var(--ink-2);
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:20px}
+  .tag{font-size:11.5px;padding:5px 11px;border-radius:999px;background:var(--paper-2);color:var(--ink-2);border:1px solid var(--line)}
+
+  .life-mini{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .life-mini:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .mini-media{aspect-ratio:16/10;overflow:hidden;background:var(--paper-2);border-bottom:1px solid var(--line)}
+  .mini-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+  .life-mini:hover .mini-media img{transform:scale(1.05)}
+  .mini-body{padding:18px 20px 20px}
+  .mini-body h4{font-size:15px;font-weight:620;letter-spacing:-.01em;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .mini-body h4 svg{color:var(--sage-ink);flex:none}
+  .mini-body p{font-size:12.5px;color:var(--muted);line-height:1.65}
+
+  /* photo strip */
+  .photo-strip{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:clamp(10px,1.6vw,16px);
+    margin-top:clamp(14px,2vw,18px);
+  }
+  .photo-item{position:relative;display:block;border-radius:var(--r-lg);overflow:hidden;background:var(--paper-2)}
+  .photo-item img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;transition:transform .8s cubic-bezier(.2,.7,.3,1)}
+  .photo-item:hover img{transform:scale(1.05)}
+  .photo-cap{
+    position:absolute;left:12px;bottom:12px;
+    font-size:11.5px;font-weight:550;color:var(--ink);
+    background:rgba(251,249,244,.9);padding:5px 10px;border-radius:999px;
+    backdrop-filter:blur(6px);
+  }
+  .photo-note{margin-top:12px;font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+
+  /* ---------- works ---------- */
+  .works-list{list-style:none;border-top:1px solid var(--line)}
+  .work-row{
+    position:relative;
+    display:grid;
+    grid-template-columns:44px 1fr auto 34px;
+    gap:clamp(12px,2.5vw,26px);
+    align-items:center;
+    padding:clamp(20px,3vw,28px) 12px;
+    border-bottom:1px solid var(--line);
+    transition:background .28s ease, padding .28s ease;
+  }
+  .work-row:hover{background:rgba(255,255,255,.72);padding-inline:20px}
+  .row-hit{position:absolute;inset:0;z-index:1}
+  .work-row > :not(.row-hit){position:relative;z-index:2}
+  .work-idx{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted)}
+  .work h3{font-size:clamp(16px,2vw,20px);letter-spacing:-.015em;font-weight:600;margin-bottom:4px}
+  .work p{font-size:13px;color:var(--muted);line-height:1.65;max-width:40em}
+  .work-meta{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+  .work-meta span{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--paper-2);color:var(--ink-2);border:1px solid var(--line);white-space:nowrap}
+  .work-arrow{
+    width:32px;height:32px;border-radius:50%;display:grid;place-items:center;
+    border:1px solid var(--line-2);font-size:13px;color:var(--ink-2);
+    transition:transform .3s ease, background .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .work-row:hover .work-arrow{background:var(--ink);border-color:var(--ink);color:var(--paper);transform:rotate(45deg)}
+
+  /* ---------- contact ---------- */
+  .contact{
+    margin-block:clamp(40px,6vw,72px);
+    border-radius:var(--r-xl);
+    border:1px solid var(--line);
+    background:linear-gradient(150deg,#FFFFFF 0%,#FDF6EA 52%,#F4EFE2 100%);
+    padding:clamp(32px,5.5vw,64px);
+    position:relative;overflow:hidden;
+  }
+  .contact h2{
+    font-size:clamp(25px,4.2vw,44px);line-height:1.24;letter-spacing:-.03em;font-weight:620;
+    max-width:16em;
+  }
+  .contact h2 em{font-family:var(--serif);font-style:italic;font-weight:400}
+  .contact p{margin-top:16px;color:var(--muted);font-size:14px;max-width:30em}
+  .contact .btn{margin-top:28px}
+  .contact-deco{position:absolute;right:-30px;bottom:-40px;width:min(46%,280px);color:var(--orange);opacity:.14}
+
+  .foot{
+    border-top:1px solid var(--line);
+    padding:26px 0 46px;
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
+    font-size:12px;color:var(--muted);letter-spacing:.02em;
+  }
+  .foot-links{display:flex;gap:18px}
+  .foot-links a{border-bottom:1px solid transparent;transition:border-color .2s ease,color .2s ease}
+  .foot-links a:hover{color:var(--ink);border-color:var(--line-2)}
+
+  /* ---------- reveal ---------- */
+  .js .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  .js .reveal[data-d="1"]{transition-delay:.09s}
+  .js .reveal[data-d="2"]{transition-delay:.18s}
+  .js .reveal[data-d="3"]{transition-delay:.27s}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;gap:38px}
+    .hero-side{padding:0 0 6px;max-width:520px}
+    .profile{transform:none}
+    .hero-photo{display:none}
+    .chip{position:static;display:inline-block;transform:none;margin-top:10px}
+    .hero-side .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .spark{display:none}
+    .world-grid{grid-template-columns:1fr}
+    .life-grid{grid-template-columns:1fr;grid-auto-rows:auto}
+    .life-feature{grid-row:auto}
+  }
+  @media (max-width:720px){
+    .nav-inner{height:62px}
+    .brand small{display:none}
+    .tab{padding:7px 12px;font-size:13px}
+    .nav-cta{padding:8px 13px;font-size:12.5px}
+    .now-grid{grid-template-columns:1fr}
+    .work-row{
+      display:grid;
+      grid-template-columns:30px 1fr 26px;
+      grid-template-rows:auto auto;
+      gap:8px 12px;
+      align-items:start;
+      padding:22px 4px;
+    }
+    .work-row:hover{padding-inline:8px}
+    .work-idx{grid-column:1;grid-row:1;padding-top:2px}
+    .work-row > div:not(.work-meta){grid-column:2;grid-row:1;min-width:0}
+    .work-meta{grid-column:2;grid-row:2;justify-content:flex-start;margin:0}
+    .work-arrow{grid-column:3;grid-row:1;margin-top:2px}
+    .sec-head .sec-note{display:none}
+    .contact-deco{width:60%;opacity:.1}
+    .foot{justify-content:flex-start}
+    .photo-strip{
+      grid-auto-flow:column;grid-template-columns:none;
+      grid-auto-columns:66%;overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      padding-bottom:6px;
+      -webkit-overflow-scrolling:touch;
+    }
+    .photo-item{scroll-snap-align:start}
+    .photo-strip::-webkit-scrollbar{display:none}
+  }
+  @media (max-width:430px){
+    .nav-cta{display:none}
+    .brand{font-size:15px}
+    .tabs{gap:2px}
+    .tab{padding:6px 10px;font-size:12.5px}
+    .profile{padding:22px}
+    .hero-actions .btn{flex:1;justify-content:center}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+    .js .reveal{opacity:1;transform:none}
+  }
+</style>
+<style id="__dm_no_drag_style__" data-page-node-id="Sm5buGPKbVjbJMWnh7rOP7">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__" data-page-node-id="0yMFK3ngDa1Y0hcPaw7YyQ">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style>
+
+
+<header class="nav is-stuck" id="nav" data-page-node-id="AhLMeFQTDFrkWWp3w9qXf1">
+  <div class="wrap nav-inner" data-page-node-id="ubTrB05ZrVToazQ7mJJPwf">
+    <a class="brand" href="#top" aria-label="回到顶部" data-page-node-id="J0YHWwzbUlpu4eEfm3UvMB">
+      <span class="brand-dot" aria-hidden="true" data-page-node-id="YJNtd553MU9oEyA7K5oS8H"></span>
+      Ivy Hui <small data-page-node-id="ITepKwBF3LBtRMcPLVsOjJ">/ portfolio</small>
+    </a>
+    <nav class="tabs" aria-label="主导航" data-page-node-id="eDVdD6RsPArSv5XeOdZYmY">
+      <a class="tab" href="#top" data-page-node-id="NCaRWyLgXSC724HABX7q4l">Home</a>
+      <a class="tab" href="#life" data-page-node-id="8NvFouW8XxuNdHpz8xnRrl">Life</a>
+      <a class="tab active" href="#works" data-page-node-id="Za8o9NppqWQS3P2BADM6do">Works</a>
+    </nav>
+    <a class="nav-cta" href="mailto:904201170@qq.com" data-page-node-id="cv03ABy3ke1GanWsqjBwaP">Say hi <span aria-hidden="true" data-page-node-id="9gGkc2wlwsnki0TsVTEyrQ">↗</span></a>
+  </div>
+</header>
+
+<main data-page-node-id="Y7zFXuw0lIqFdlIK2vBeXc">
+  <!-- hero -->
+  <section id="top" class="hero" data-page-node-id="xpmBr1xzjk9EZqVhIM8zvF">
+    <div class="wrap" data-page-node-id="q584IWJYTF0t1Xoae6aZIo">
+      <div class="hero-grid" data-page-node-id="Z1GepK2LATsAkIPv9sYD54">
+        <div class="hero-copy" data-page-node-id="RWTpxlu64LhiG52Qlevlol">
+          <p class="eyebrow" data-page-node-id="aKtlelP56VsMuYpC8taUzO"><b aria-hidden="true" data-page-node-id="kYHQTSTFzDwENX0XHwM2LY"></b> Product Manager × Design Background <i aria-hidden="true" data-page-node-id="h5uNm4VbeEIbzGNpgNH1SO"></i></p>
+          <h1 data-page-node-id="ekDbajs9O4g0u9exyY9FJE" style="">Hi, I'm <em data-page-node-id="JjPs5ReXpqTTlT1xiCT8CJ">Ivy</em>.<br data-page-node-id="qlcfeFSIB3AiJ7UmrBRd5q"><span class="h1-sub" data-page-node-id="Ier99oDNDpRDbmvxUdleay">这是我的<br data-page-node-id="C3VY8sWpnxJJxLhtbiz72S"><span class="mark" data-page-node-id="n9QB3RX5Kuz5f2QyAB3FwC">一方小天地。</span></span></h1>
+          <p class="lede" data-page-node-id="o0ogHg1HWOoWpiS5Kcdkxc" style="">贵宾一位，里面请~<br data-page-node-id="WH6AAB8Say0XUonUzMhL5z">欢迎来到<span class="space-nowrap" data-page-node-id="gfgjzG9Rt2H4C96qZftLs4">我的空间<svg class="house-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-page-node-id="9bUo7modkQT9oWXxsPMKBq" style=""><path d="M3.6 10.7 12 4.2l8.4 6.5V19.6a1.2 1.2 0 0 1-1.2 1.2H4.8a1.2 1.2 0 0 1-1.2-1.2z" data-page-node-id="5sdToj67K40Eh5FGk1lVJ3"></path><path d="M9.7 20.8v-6.3h4.6v6.3" data-page-node-id="yFtB2mATsoFs17hmDJNJHG"></path></svg></span></p>
+          <div class="hero-actions" data-page-node-id="f8ej8uc2HeMFY3s14SI6ZL">
+            <a class="btn btn-primary" href="#below" data-page-node-id="a7IYV3g2ieZPjgvDtuGxmL">探索我的世界 <span aria-hidden="true" data-page-node-id="m3NxvDoSur6795HshlzmxW">↓</span></a>
+            <a class="btn btn-ghost" href="mailto:904201170@qq.com" data-page-node-id="vztteSzN24ZfnXK4j4RBuy">Say hi <span aria-hidden="true" data-page-node-id="nkOrce5FJ2OmzCxxkk6Xq1">↗</span></a>
+          </div>
+        </div>
+
+        <aside class="hero-side" data-page-node-id="VhaGxj3kw4sKZN3EqLh6wm">
+          <img class="hero-photo" src="images/img-1793291649304-k6m70z.jpg" width="560" height="560" alt="浅粉色的芍药花" fetchpriority="high" data-page-node-id="cQLmtuBDwCJ48TFxcLeKKN" data-original-src="" data-last-crop-x="" data-last-crop-y="" data-last-crop-w="" data-last-crop-h="" style="">
+
+          <div class="profile" data-page-node-id="og7nUm7baHdQZ5wudKmFO9">
+            <div class="profile-top" data-page-node-id="1Irbiw349kLS7GKh29oGTj"><span data-page-node-id="8rCA9uwmD46XPlQXNqA4qc">Profile</span><span data-page-node-id="mRFo3ugCSB8DOAR0DY6t5H">2026</span></div>
+            <div class="avatar" aria-hidden="true" data-page-node-id="IqciRF4gMB5Uct7AmjEG1k">I</div>
+            <h2 data-page-node-id="JwDAMZPzj8BfNb69ehMAyo">Ivy Hui</h2>
+            <p class="profile-role" data-page-node-id="vSMaInyF9f4J6AWeFcFyhI">Product Manager</p>
+            <ul class="profile-rows" data-page-node-id="hx3KSdQIu1ahMhf4DcS7y0">
+              <li data-page-node-id="IuYyocvaYXKtDmQhqfuFFy"><span data-page-node-id="hpiAtkeIo4TJ2AprcUEqQx">现在</span><b data-page-node-id="rLG4vBsnYhLb31rnx1TqER">产品经理</b></li>
+              <li data-page-node-id="A4fAfiwrtHk5cJDWxn2EOl"><span data-page-node-id="BfRHfvVZo9k6q86xzAFcYe">在做</span><b data-page-node-id="SImD75uqomAVTqTEzyY4je">个人网站 · 旅行日记</b></li>
+              <li data-page-node-id="F5EFAAutdSSodbL317KJzf"><span data-page-node-id="Qz5F1aYnUwlTwolq2BQcfA">在学</span><b data-page-node-id="1BISEc4O8PZkV2utIPFQnO">商业化 · AI 产品</b></li>
+            </ul>
+          </div>
+          <div class="chips" data-page-node-id="RHfZbqfudvDjje42n7SlH8">
+            <span class="chip chip-1" data-page-node-id="DBvzQB23OZNSabWoztN8ML">随手记录</span>
+            <span class="chip chip-2" data-page-node-id="ytF5ERne27LK0ApeSuXBhK">AI 产品 ↑</span>
+            <span class="chip chip-3" data-page-node-id="VUNRpfc5EVroZjrDaNixuX">旅行日记</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="ticker" aria-hidden="true" data-page-node-id="FwzKxGBUmzM1DJPU5N9qsA" style="">
+      <div class="ticker-track" data-page-node-id="VX3vA5dyX0aAptJVBJmSZR">
+        <span data-page-node-id="r80U4UreDc5E2IUoRT1U01">Product Thinking</span><b data-page-node-id="q8N8Tueh9TJcb0qtHGIKZh">·</b><span data-page-node-id="z2pUP0fs0e7K4ZxfZsFMpY">Visual Craft</span><b data-page-node-id="yKrwBR3wKcUBflmux6qo8t">·</b><span data-page-node-id="FOqxRKwXVLxXOUNGhXWcka">Travel Notes</span><b data-page-node-id="WH3xdpp0BoUgOSwKG6CEdz">·</b><span data-page-node-id="1vTkarrWmSOljuvmDIRSqV">Always Learning</span><b data-page-node-id="HO9zp5y6xBGtzDYKmvalmY">·</b><span data-page-node-id="2qyBkRQvRWv4uP5GRqEVQn">Light but Ordered</span><b data-page-node-id="cdnDO7TETilyWf0idSdG3J">·</b>
+        <span data-page-node-id="CZRwjBKCVo7Q9K1wUqR0G4">Product Thinking</span><b data-page-node-id="A8ZTbEkWHNPitmxRAWiLof">·</b><span data-page-node-id="JpnZhHPCF3RPGM18U4eGqX">Visual Craft</span><b data-page-node-id="Xlbxmqlzg7ZD8sZj9mkflB">·</b><span data-page-node-id="hmiM0OzZ0V85VcEiKaTEB8">Travel Notes</span><b data-page-node-id="OiJGuM4yuwwf0bLwuTj98M">·</b><span data-page-node-id="0FUcsKHBV7pHIOq8fV1mzo">Always Learning</span><b data-page-node-id="z2n1M80eC1eggyGoiOFCUX">·</b><span data-page-node-id="kW4eSNCHFlhEbf5OXaAT4w">Light but Ordered</span><b data-page-node-id="Y6HRJmY2tNAnyTFDTe5DFQ">·</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 world below -->
+  <section id="below" class="sec" data-page-node-id="mOyakHC8H6eQC2IwYVOR9v">
+    <div class="wrap" data-page-node-id="QH7szVS85m7hSDD7DFhkFq">
+      <div class="sec-head reveal in" data-page-node-id="gT0npDRbtVjhWSRgLFdKdX">
+        <span class="sec-idx" data-page-node-id="CCWP9BBDRqVuZZDCxqWVAT">01</span>
+        <span class="sec-label" data-page-node-id="ICGbHkZL3y35rozDV5Cuz5">The World Below</span>
+        
+      </div>
+      <h2 class="title reveal in" data-page-node-id="GQjrShlGKfjAApu1eUDERe" style="font-weight: 700;">水面之上是工作，<br data-page-node-id="bBZU9BaEpDS7MrRHhpkQ8Q">水面之下是<em data-page-node-id="yDYA09M5jcAopeMBIPoYDc" style="white-space: pre-wrap;">更大的世界。​</em></h2>
+      <p class="sec-sub reveal in" data-d="1" data-page-node-id="mIZRzBz5l2Hf6BlAoK1KDP" style="">工作之外，生活之中。这里收录一些热爱，和还在生长的念头...​</p>
+
+      <div class="world-grid" data-page-node-id="5QDxulH7C0TBZCFoHpUT8D">
+        <div class="world-card world-life reveal in" data-d="1" data-page-node-id="sWnsCP9hO232sgTWEFeWn8" style=""><a class="world-hit" href="#life" aria-label="进入生活板块" data-page-node-id="WS7C6nDDNRXy1P7rOtwsXV"></a>
+          <div class="world-top" data-page-node-id="zHnwSQEUdYaiOay8AVTPBi"><span data-page-node-id="HDMDVeWYReqaDnZJo1h5k8">01</span><s data-page-node-id="qky33xB0mMpGbyqpsHv1Bk"></s><span data-page-node-id="wQnlSdZH5rZW2S9WlSijxJ">Life</span></div>
+          <div class="world-body" data-page-node-id="MjU2O9BPEPbcKAlA7rbWs0">
+            <h3 data-page-node-id="XSmz9MA7lUR33WXPFoGqDd">生活 <em data-page-node-id="C0D2EBY7tMJqYZiHu6vDfZ">beyond work</em></h3>
+            <p data-page-node-id="uwMX9CarHXRvnYMwQOgJgy" style="">日常随记 · 摄影 · 书影音​​</p>
+          </div>
+          <span class="world-go" aria-hidden="true" data-page-node-id="6zxxZGrLxGRSFZcK7WYPx2">↗</span>
+          <svg class="world-deco" viewBox="0 0 120 120" fill="none" aria-hidden="true" data-page-node-id="VF0J6UDG1plkofTwCBHbAT" style=""><circle cx="88" cy="34" r="21" fill="#fff" opacity=".55" data-page-node-id="ceADtQBGitUpD1a8JCWTge"></circle><path d="M0 96c26-26 44 6 62-14s34-16 58 4v34H0z" fill="#fff" opacity=".4" data-page-node-id="3nnNRrBnrdOJAY5ITLcOly"></path></svg>
+        </div>
+        <div class="world-card world-works reveal in" data-d="2" data-page-node-id="DMfELNgFpRHHXXpTvVxU50" style=""><a class="world-hit" href="#works" aria-label="进入作品板块" data-page-node-id="c1NoIpfAss5uYfrtzBKfyq"></a>
+          <div class="world-top" data-page-node-id="Nlv2UEMuDQHjDQAjg3UtTH"><span data-page-node-id="18Vo5pHWUq2y8CbG1TmKls">02</span><s data-page-node-id="A2dXVbEgOVZK43eBMwNaZh"></s><span data-page-node-id="Rnxk5czL0frB67G4AghYHQ">Works</span></div>
+          <div class="world-body" data-page-node-id="Ku4DDmOuuTGyoWciSMKxhJ">
+            <h3 data-page-node-id="0cxgpo1QPllg541cwKSsv1">作品 <em data-page-node-id="nwTxsDonMK9QXoDsap5DZc">what I build</em></h3>
+            <p data-page-node-id="xRqaSr908eFJ5AGB6scmHw" style="white-space: pre-wrap;">个人网站 · 旅行日记 · 产品项目​​</p>
+          </div>
+          <span class="world-go" aria-hidden="true" data-page-node-id="UkINOaF4kd4p74nyICP5bF">↗</span>
+          <svg class="world-deco" viewBox="0 0 120 120" fill="none" aria-hidden="true" data-page-node-id="PzNqHC8eDPwDDzz0Cfgiw0" style=""><rect x="52" y="18" width="46" height="46" rx="12" fill="#fff" opacity=".5" data-page-node-id="bZQEYGVOF5r5nPEBoiOGpU"></rect><rect x="22" y="58" width="30" height="30" rx="9" fill="#fff" opacity=".38" data-page-node-id="aRGd51C6v0pOJoHjYxueBV"></rect></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 now -->
+  <section id="now" class="sec" style="padding-top:0" data-page-node-id="2qf4GEypxyn9ZFEaNfzmEd">
+    <div class="wrap" data-page-node-id="tRmcAFb0yr1CzdgwPWFHUZ">
+      <div class="sec-head reveal in" data-page-node-id="VNrJE27mtTGE3JQfdt5EuN">
+        <span class="sec-idx" data-page-node-id="XQXFW5WbFGflnE2RjeMjdO">02</span>
+        <span class="sec-label" data-page-node-id="Yw1tWXRKkHwMOA6E5b00cG">Now / 正在发生</span>
+        <span class="sec-note" data-page-node-id="4ELA7jGH5fByG8Cc9KMN3e">2026.10</span>
+      </div>
+      <div class="now-grid" data-page-node-id="9GVvAfWVwz69JUcKQyw0EX">
+        <div class="now-card reveal in" data-d="1" data-page-node-id="etGOTt88KjvlYHSi66y3XS">
+          <h3 data-page-node-id="CEltVLV6F50cYfuB5x5Aka">Building <span class="pill pill-orange" data-page-node-id="gbOX686uWyFx0eeLwo3eOF">进行中</span></h3>
+          <ul class="now-list" data-page-node-id="3L6DsBhOjPq4zZmCVQn1wD">
+            <li data-page-node-id="8CP2LLSH9KaESZbZJBLr20"><i aria-hidden="true" data-page-node-id="C1jKn3vvsM2rtCiGeKG8MI"></i><div data-page-node-id="Twm4rLBE6lnn8zeSHEtcRq">个人网站<small data-page-node-id="FR3ww3PftASQEl1B4JXTNn">从 0 开始，一页一页把想法放上去。</small></div></li>
+            <li data-page-node-id="EgrB7gdnoXeD6SlYDo01Q1"><i aria-hidden="true" data-page-node-id="82DSxb6DjOLDf8pjLcpfno"></i><div data-page-node-id="p8FLDChZw1QBhHaDtCoZws">旅行日记<small data-page-node-id="ZNkOQLdP0cyLTpHHklZrJp">在路上，也在整理。照片和一句话都不放过。</small></div></li>
+          </ul>
+        </div>
+        <div class="now-card reveal in" data-d="2" data-page-node-id="FktTHRsSRUywb1wFwV1GXx">
+          <h3 data-page-node-id="VjryV4sOF45PvpIi6GE6ux">Learning <span class="pill pill-sage" data-page-node-id="x4gVJB7lLwGukjnrZG5ee0">持续</span></h3>
+          <ul class="now-list" data-page-node-id="CaqQjuetiAhG33UObDgK0u">
+            <li data-page-node-id="B7xM4y7IbDwCMdKju9LeR5"><i aria-hidden="true" data-page-node-id="Wo6HorPTr4MUXBItVIlmN2"></i><div data-page-node-id="xa4pliRBzThiiEGpSHYaRd">商业化产品<small data-page-node-id="m9VTjKFbEDqJ6MKCCBKUB5">从"做出来"到"活下去"，补上生意这一课。</small></div></li>
+            <li data-page-node-id="ps53snFW0r9sXXoKE4hTnM"><i aria-hidden="true" data-page-node-id="qLCv3QTvjrFjhmuCf4fSCv"></i><div data-page-node-id="KBmJzmxDuLGIpyiDEGNtnE">AI 产品应用<small data-page-node-id="prksAwa7aJlDj6a8oPhx7c">在真实场景里试试，AI 到底能解决什么问题。</small></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 life -->
+  <section id="life" class="sec" data-page-node-id="tHfQHOGCLXGy6Re2FqCTiC">
+    <div class="wrap" data-page-node-id="9akMNAtTbxMC5e3eqCPFr6">
+      <div class="sec-head reveal in" data-page-node-id="aOQb5JeLIO3yHouZOlIam7">
+        <span class="sec-idx" data-page-node-id="3dNagAqcXaidm1bBZMSs92">03</span>
+        <span class="sec-label" data-page-node-id="Hwg3jQlUR30RVFMjvKoYhP">Life</span>
+        
+      </div>
+      <h2 class="title reveal in" data-page-node-id="WiwY3zfnqT5bF93aDigYOb">工作之外，<em data-page-node-id="zEtHQVTPftS05gzxZRqsO9" style="font-weight:inherit">生活之中</em>。</h2>
+      <p class="sec-sub reveal in" data-d="1" data-page-node-id="fLDQUsK4fGvfK1GgHN0Hcs" style="">没有 KPI，只有一些被好好记下来的瞬间。​​</p>
+
+      <div class="life-grid" style="margin-top:clamp(26px,4vw,38px)" data-page-node-id="rS7MD0eDM6uQlWLIeSAd4T">
+        <article class="life-feature reveal in" data-d="1" data-page-node-id="n52W29gMwrwu140Y7AK20D" style="">
+          <div class="life-media" data-page-node-id="yZ5Dvbx8KGNd9AifS23xfH" style="">
+            <img src="assets/daily-main.jpg" width="1120" height="840" alt="傍晚的海面，云层里透出金色的光" loading="lazy" data-page-node-id="vIHqd3qHaqXf1N4DVCGozf" style="">
+            <span class="life-badge" data-page-node-id="hv7u0Hu7uXySUQA8bgpBne" style="">DAILY RECORD</span>
+          </div>
+          <div class="life-body" data-page-node-id="VkPrlT7VRPnnJJy3lxmGTG">
+            
+            <h3 data-page-node-id="RXYzsZhF43yph8Gm0Fu4yS" style="">日常随记<br data-page-node-id="iHM48GewYuVP6jOiCyUDjQ"><em data-page-node-id="InFmvpAnoAWaP8o22lGXty" style="">daily record</em></h3><p data-page-node-id="E9ruFCBMIVHnV3BdI665ho" style="">把去过的地方，尝到的美食，连同当时的心情一起记下来，留下那些点滴时刻。​​​</p>
+            <p class="life-quote" data-page-node-id="7d8GeHsyJscLqRCW8anvDe" style="">“生活没有KPI，随记是回忆的索引。”​​​​​​</p>
+            <div class="tags" data-page-node-id="mIGw35EYBoEytM1k5HKXoR">
+              <span class="tag" data-page-node-id="0cZivhOYSYXR06AdPMsJIn" style="">午后的阳光</span><span class="tag" data-page-node-id="zQmYCUvRZRky4lRmMtD86x" style="">和朋友一起吃的美食</span><span class="tag" data-page-node-id="zgRCHjFZU4fKoxzyLU7fNu" style="white-space: pre-wrap;">摇着尾巴的小狗</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="life-mini reveal in" data-d="2" data-page-node-id="PskG2Xm6zoIGfqtpCq6htd" style="">
+          <div class="mini-media" data-page-node-id="bhgy8Hp53wnGmNoAOLZhHx" style="">
+            <img src="assets/life-camera.jpg" width="760" height="475" alt="草帽、咖啡与一台相机摊在木桌上" loading="lazy" data-page-node-id="tcSzhLPg4D6lICEWAjH5ST" style="">
+          </div>
+          <div class="mini-body" data-page-node-id="Vjf5keZ06SQ4vKrFFdwNnk">
+            <h4 data-page-node-id="2Y9XDUyhv8xhluJbId8nU2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-page-node-id="oyIdFVzBby2OiF2a10znaX" style=""><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.2a2 2 0 0 0 1.6-.8l.7-.9A1.6 1.6 0 0 1 10.3 4h3.4a1.6 1.6 0 0 1 1.3.7l.7.9a2 2 0 0 0 1.6.8h1.2A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" data-page-node-id="CWHNbkHo9pxTsinnUVSfGd"></path><circle cx="12" cy="12.5" r="3.4" data-page-node-id="OjHkWBbBhSVCKTIQztsIjc"></circle></svg>
+              摄影 · 慢慢攒
+            </h4>
+            <p data-page-node-id="5CYe6C4BXZKf7M2VvE3yFz" style="">照片先存着，之后学着把它们整理成一组一组的。​</p>
+          </div>
+        </article>
+
+        <article class="life-mini reveal in" data-d="3" data-page-node-id="D90IpnroFer9dk4TCrvZt9" style="">
+          <div class="mini-media" data-page-node-id="9D4Yt949YQM0h0vsrtAaez" style="">
+            <img src="assets/life-books.jpg" width="760" height="475" alt="摊开的书、手账本和一支笔" loading="lazy" data-page-node-id="ucnTJE5cIg7OWCSL54tBWJ" style="">
+          </div>
+          <div class="mini-body" data-page-node-id="iGeiF0DaUvatj087NEAKll">
+            <h4 data-page-node-id="kSkcmUIpABNXoyf44vrjln">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-page-node-id="0Piqa2Kwf49yHz4HdTQ1CK" style=""><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H10a2 2 0 0 1 2 2v14a1.6 1.6 0 0 0-1.6-1.6H4z" data-page-node-id="jxH1MjwZSYrPIAb383umNU"></path><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H14a2 2 0 0 0-2 2v14a1.6 1.6 0 0 1 1.6-1.6H20z" data-page-node-id="EgVj0vQLfJ421sQ44pHWfQ"></path></svg>
+              书影音 · 想记下来
+            </h4>
+            <p data-page-node-id="UIn6Wwq6kBuI2s3EsxEWOQ">看完不写点什么，过几个月就像没看过一样。</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="photo-strip reveal in" data-d="1" style="margin-top:clamp(14px,2vw,18px)" data-page-node-id="b6iFVOdbWKrp7AvoLMPNFS">
+        <a class="photo-item" href="#life" aria-label="海边的栈道" data-page-node-id="vfIy7SY2QY0iipLk5EP8Cx" style="">
+          <img src="assets/daily-a.jpg" width="600" height="750" alt="海边岩石之间的木栈道，远处是灰蓝色的海" loading="lazy" data-page-node-id="WtNTEmA9AO0PAoB9VWwm2v" style="">
+          <span class="photo-cap" data-page-node-id="8S9ItewJaFiejtKst1bKRo" style="font-weight: 700; white-space: pre-wrap;">海边栈道​</span>
+        </a>
+        <a class="photo-item" href="#life" aria-label="窗边的一餐" data-page-node-id="XhnREYbSQgqFSKpjmQABvK" style="">
+          <img src="assets/daily-b.jpg" width="600" height="750" alt="托盘里的吐司、冰淇淋和两杯绿色饮品" loading="lazy" data-page-node-id="8s5mvdKbFEKdWGcBHzDVGE" style="">
+          <span class="photo-cap" data-page-node-id="Gh09EA7BOUx1BODBFAzIcS" style="font-weight: 700;">窗边一餐​</span>
+        </a>
+        <a class="photo-item" href="#life" aria-label="竹篮里的小家伙" data-page-node-id="lURW7ARrRso6Vp8DGmlQe0" style="">
+          <img src="assets/daily-c.jpg" width="600" height="750" alt="竹编篮子里的香蕉和两个红色小泥塑" loading="lazy" data-page-node-id="6xe092K6Gq4LDo36zXDf9i" style="">
+          <span class="photo-cap" data-page-node-id="PPjJf9ZdOiqa3zE9dc3t5E" style="font-weight: 700;">竹篮里的小家伙</span>
+        </a>
+      </div>
+      <p class="photo-note" data-page-node-id="sTLVwok9pMlF5tnk7OXxSB">照片都是自己随手拍的，存着。</p>
+    </div>
+  </section>
+
+  <!-- 04 works -->
+  <section id="works" class="sec" data-page-node-id="PG3Dc9hrvJNh108FMMUflK">
+    <div class="wrap" data-page-node-id="qIG4GxR6sUhJx8MD5ZMgmM">
+      <div class="sec-head reveal in" data-page-node-id="n0AMbWsyWQWNrtzbgBb8Eb">
+        <span class="sec-idx" data-page-node-id="wiob75cAE95eGJ4MdQlzml">04</span>
+        <span class="sec-label" data-page-node-id="puKkSBvUWEiys6NE3sSG9F">Works</span>
+        
+      </div>
+      <h2 class="title reveal in" data-page-node-id="RfJ2HBgWuj82cZX8b69bWj" style="">先想清楚<em data-page-node-id="uCC5CRpQnPrWTfljOMHaXo">为什么</em>，<br data-page-node-id="DrDfQqnGnKJARMoxD2EfHm">再动手做。</h2>
+      <p class="sec-sub reveal in" data-d="1" data-page-node-id="xAkXdDCZGjinW58WUw32An" style="white-space: pre-wrap;">一半是产品经理的秩序，一半是设计师的共情。做之前，先回答这件事为谁存在。​​</p>
+
+      <ul class="works-list" style="margin-top:clamp(26px,4vw,38px)" data-page-node-id="4AQ58akNTswxCJi5TfuzJQ">
+        <li class="work reveal in" data-d="1" data-page-node-id="qUJx1nAjEgiLgpOJppAp6c">
+          
+        <div class="work-row" data-page-node-id="UkFdr6w1BVf0YwRaOU9YNh"><a class="row-hit" href="#top" aria-label="这个个人网站" data-page-node-id="LwrJYt5Kn1F8YwlptHnnLU"></a>
+            <span class="work-idx" data-page-node-id="2gcYYlWTa6PmqzOKjteuep">01</span>
+            <div data-page-node-id="INODQMeKDvsb3qg8pUVp6o">
+              <h3 data-page-node-id="3eozPVtN88h8Dau7vSt06f" style="">个人网站​</h3>
+              <p data-page-node-id="BBX6dv9aD4WKFMjD6tT4nm" style="">每一步都在练：把脑子里的画面，落成真正能被看见的东西。​</p>
+            </div>
+            <div class="work-meta" data-page-node-id="KfQse7bs1VLL2HOlvBu1E6"><span data-page-node-id="D8FD8qcArEddgLpdZewIVi" style="">想法输出</span><span data-page-node-id="jszBuBjOEGJBXIJiDfzMq4" style="white-space: pre-wrap;">设计表达</span><span data-page-node-id="twKb6DFJRkRaXV2Hkmb0oL">进行中</span></div>
+            <span class="work-arrow" aria-hidden="true" data-page-node-id="c8QKxsjnIKjjDwFDmIpjsj">↗</span>
+          </div></li>
+        <li class="work reveal in" data-d="2" data-page-node-id="PNG7ruEz6pSAwXxqcMhPWs">
+          <div class="work-row" data-page-node-id="xEwBUCcwciH3ABThN4m1MA"><a class="row-hit" href="#life" aria-label="旅行日记" data-page-node-id="dOedk7kFADRTiKO8emB94U"></a>
+            <span class="work-idx" data-page-node-id="DbfEGEx7hIBYddSb09mwDE">02</span>
+            <div data-page-node-id="AxwaQKMiX94XOsl4zvyG6z">
+              <h3 data-page-node-id="B90wILbGS5XdLtYPUU2t0m" style="">旅行日记​</h3>
+              <p data-page-node-id="tAWGldoTZ7DimGFE9kCdbv" style="">一次行程该留下些什么，照片、路线，还是那天下午的光。​</p>
+            </div>
+            <div class="work-meta" data-page-node-id="rJS9QTZrSkdbIFBB6hqiLs"><span data-page-node-id="B5McdtR9QATNaDTCW0qUYn" style="">美好随记</span><span data-page-node-id="z7hQBc2ZnZAhddVfLsdIgz" style="">在路上</span><span data-page-node-id="paMtLaN0bw18VnCBUuG30P">进行中</span></div>
+            <span class="work-arrow" aria-hidden="true" data-page-node-id="8OVYJ4iZdRzhWSrfIc3jq3">↗</span>
+          </div>
+        </li>
+        <li class="work reveal in" data-d="3" data-page-node-id="pU5cyrcu3Q1zUguGNVqZJK">
+          <div class="work-row" data-page-node-id="7W7dsMFiLnL9kRlF49wtAr"><a class="row-hit" href="mailto:904201170@qq.com?subject=想看看%20Ivy%20的更多产品项目" aria-label="产品项目 · 整理中" data-page-node-id="oJHCC8RYLXmWuS3BF6Vw6U"></a>
+            <span class="work-idx" data-page-node-id="qFEkxIIxozAqiua4wSPF76">03</span>
+            <div data-page-node-id="8PEeAjYpS1emqdBY7v19sn">
+              <h3 data-page-node-id="0U20tHkdxN9eAX9KEF1Hqg">产品项目 · 整理中</h3>
+              <p data-page-node-id="EBZzRU3LNAmlTQyxPSe6g2" style="">过往的项目还在整理成能讲清楚的故事，敬请期待。​</p>
+            </div>
+            <div class="work-meta" data-page-node-id="Zu6ZcJWr1LRKNH12rwxp9W"><span data-page-node-id="z6YLV9k1y5t5TmttRDCRim">待补充</span></div>
+            <span class="work-arrow" aria-hidden="true" data-page-node-id="cPm6VRYPFiw6DxxBqsT0mq">↗</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section class="sec" style="padding-top:0" data-page-node-id="8Drk7uTVuqiKZvT49KxRTc">
+    <div class="wrap" data-page-node-id="5rZcWByQGVN3MnEPQYyXFa">
+      <div class="contact reveal in" data-page-node-id="9scYeSqOVmKsthwpUQTk0q">
+        <h2 data-page-node-id="EnoSr6xFQbYn1MuCAsbzOW">想聊聊产品、设计，<br data-page-node-id="fmXJFpGGLjPe1epiVF344Q">或者交换一份<em data-page-node-id="0IwVWoHzNteFNKNUpFybL2">旅行清单</em>？</h2>
+        <p data-page-node-id="pG79P34EV1n0yJ0HK9eH8f">随时写信给我，我会认真回。聊工作、聊想法、聊哪座城市值得多待两天，都可以。</p>
+        <a class="btn btn-primary" href="mailto:904201170@qq.com" data-page-node-id="D29lLR5p8Znww5QToNBhhj">904201170@qq.com <span aria-hidden="true" data-page-node-id="ekDuZwKXEeMDz5MAlG9AzD">↗</span></a>
+        <svg class="contact-deco" viewBox="0 0 200 200" fill="none" aria-hidden="true" data-page-node-id="c1jBZULKaNkebnSeCBm7HW">
+          <circle cx="140" cy="56" r="34" stroke="currentColor" stroke-width="2" data-page-node-id="IWdyGDDWQj6SRDrouB6wcM"></circle>
+          <path d="M20 170c34-40 62-14 84-46s52-30 78-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-page-node-id="I0S868o5MNdhuqbqqAbqne"></path>
+        </svg>
+      </div>
+
+      <footer class="foot" data-page-node-id="kbt6xS0uGJPtPwN4iYFslo">
+        <span data-page-node-id="cUb0axDd5IL4jnYjO9A7Wl" style="white-space: pre-wrap;">© 2026 Ivy Hui · 一点点搭建中​​</span>
+        <div class="foot-links" data-page-node-id="Opk2PWPJBiEVsuWaBHHFJH">
+          <a href="#top" data-page-node-id="FFT49xyg82M6EquvUcNOdO">Back to top ↑</a>
+          <a href="mailto:904201170@qq.com" data-page-node-id="JPB3ZjjDDozyAX3KAvpTKo">Email</a>
+        </div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script data-page-node-id="tLIbeooeCljBbOx4RC6fMZ">
+  document.documentElement.classList.add('js');
+
+  // reveal on scroll
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // sticky nav state
+  var nav = document.getElementById('nav');
+  var onScroll = function () {
+    nav.classList.toggle('is-stuck', window.scrollY > 8);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // active tab
+  var links = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var map = {};
+  links.forEach(function (l) {
+    var id = l.getAttribute('href').slice(1);
+    var sec = document.getElementById(id);
+    if (sec) map[id] = l;
+  });
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        var t = map[e.target.id];
+        if (t) t.classList.add('active');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function (id) { spy.observe(document.getElementById(id)); });
+  }
+</script>
+
+
+
+
+
+</body></html>
